@@ -1,0 +1,10 @@
+/* 
+  InfoPlist.strings
+  Ginsha
+
+  Created by Kyle Zhao on 12/21/20.
+  
+*/
+
+/* Localized Bundle Display Name */
+"CFBundleDisplayName" = "银者";
