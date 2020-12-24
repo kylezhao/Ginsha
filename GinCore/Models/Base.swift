@@ -66,7 +66,6 @@ public class Result : CustomStringConvertible {
         }
     }
 
-
     public init() {
         _timestamp = Date().timeIntervalSince1970
     }

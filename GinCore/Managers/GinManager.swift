@@ -34,7 +34,7 @@ public class GinManager: DataManaging {
 
         command.handler = { [weak self] (localResult: Result?) in
             guard let self = self else { return }
-            
+
             if let result = localResult {
                 if result.validity == .valid {
                     logCore("Found valid local \(result)")
@@ -47,7 +47,7 @@ public class GinManager: DataManaging {
             } else {
                 logCore("No cached results")
             }
-            
+
             command.handler = originalHandler
             self.performNetwork(command: command, localResult: localResult)
         }
@@ -141,3 +141,4 @@ public class GinManager: DataManaging {
  GinManager.shared.perform(command: convertCommand)
 
  */
+

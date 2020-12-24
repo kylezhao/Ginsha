@@ -30,7 +30,10 @@ public class SupportedCurrenciesResult: Result {
     private let _jsonDictionary: [String: Any]
     override var jsonDictionary: [String: Any] { return _jsonDictionary }
 
-    public let currencies: [String:String]
+    public let sortedSymbolArray: [String] // [AED, BAT]
+    public let sortedPrefixArray: [String] // [A, B, C, E]
+    public let prefixToSymbolsDictionary: [String: [String]] // [A:[A1, A2], B:[B1, B2]]
+    public let symbolToNameDictionary: [String: String] // [JPY:"Japanese Yen"]
 
     init?(jsonDictionary: [String: Any]) {
 
@@ -46,7 +49,13 @@ public class SupportedCurrenciesResult: Result {
         }
 
         _jsonDictionary = jsonDictionary
-        self.currencies = currencies
+
+        self.symbolToNameDictionary = currencies
+        self.sortedSymbolArray = self.symbolToNameDictionary.keys.sorted()
+        self.prefixToSymbolsDictionary = self.sortedSymbolArray.reduce(into: [String:[String]] ()) { collection, symbol in
+            collection[String(symbol.prefix(1)), default: []].append(symbol)
+        }
+        self.sortedPrefixArray = self.prefixToSymbolsDictionary.keys.sorted()
     }
 
     override public var description: String {
@@ -54,7 +63,7 @@ public class SupportedCurrenciesResult: Result {
             var description = "<\(NSStringFromClass(type(of: self))):\(Unmanaged.passUnretained(self).toOpaque())>"
             description += " timestamp:\(timestamp)"
             description += " validity:\(validity)"
-            description += " currencies:\(currencies)"
+            description += " currencies:\(symbolToNameDictionary)"
             return description
         }
     }
