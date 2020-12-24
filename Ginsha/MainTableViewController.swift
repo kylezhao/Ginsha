@@ -10,63 +10,50 @@ import GinCore
 
 class MainTableViewController: UITableViewController {
 
+    private let currencyCellID = "currencyCell"
+    private let amountCellID = "amountCell"
+    private var currencySelectionViewController: CurrencySelectionViewController!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let supportedCurrenciesCommand = SupportedCurrenciesCommand { (resultOptional: Result?) in
-
-            guard let result = resultOptional else {
-                logAppError("got nil result for command")
-                return
-            }
-
-            guard let supportedCurrenciesResult = result as? SupportedCurrenciesResult else {
-                logAppError("failed to cast \(result) as SupportedCurrenciesResult")
-                return
-            }
-
-            logApp("success got \(supportedCurrenciesResult)")
+        self.currencySelectionViewController = self.storyboard?.instantiateViewController(withIdentifier: "CurrencySelectionViewController") as? CurrencySelectionViewController
+        self.currencySelectionViewController.selectionHandler = { (currency: String) in
+            logApp("currency selected \(currency)")
+            GinManager.shared.save()
+            self.navigationController?.dismiss(animated: true, completion: nil)
         }
-
-        GinManager.shared.perform(command: supportedCurrenciesCommand)
-
-
-
-        let quotesCommand = QuotesCommand(source: "USD") { (resultOptional: Result?) in
-
-            guard let result = resultOptional else {
-                logAppError("got nil result for command")
-                return
-            }
-
-            guard let quotesResult = result as? QuotesResult else {
-                logAppError("failed to cast \(result) as QuotesResult")
-                return
-            }
-
-            logApp("success got \(quotesResult)")
-        }
-
-        GinManager.shared.perform(command: quotesCommand)
-
-
-        let convertCommand = ConvertCommand(source: "USD", destination: "CNY", amount: 100) { (resultOptional: Result?) in
-
-            guard let result = resultOptional else {
-                logAppError("got nil result for command")
-                return
-            }
-
-            guard let convertResult = result as? ConvertResult else {
-                logAppError("failed to cast \(result) as ConvertResult")
-                return
-            }
-
-            logApp("success got \(convertResult)")
-        }
-
-        GinManager.shared.perform(command: convertCommand)
     }
 
+    // MARK: - UITableViewDelegate
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        self.navigationController?.present(currencySelectionViewController, animated: true, completion: nil)
+    }
+
+
+    // MARK: - UITableViewDataSource
+
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 2
+    }
+
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: indexPath.row == 0 ? currencyCellID : amountCellID, for: indexPath)
+        return cell
+    }
+
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+
+        if section == 0 {
+            return NSLocalizedString("Convert From", comment: "Header text above conversion source currency symbol and conversion amount")
+        } else {
+            return NSLocalizedString("Convert To", comment: "conversion destination currencies")
+        }
+    }
 }
 

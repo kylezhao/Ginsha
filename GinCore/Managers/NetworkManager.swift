@@ -26,9 +26,7 @@ class NetworkManager: DataManaging {
 
         var components = self.baseURLComponents
 
-        if command.path != nil {
-            components.path = command.path!
-        }
+        components.path = command.path
 
         if command.queryItems != nil {
             components.queryItems?.append(contentsOf:command.queryItems!)

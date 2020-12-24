@@ -7,15 +7,62 @@
 
 import UIKit
 import CoreData
+import GinCore
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    // MARK: - UIApplicationDelegate
 
-
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+        logApp("")
         return true
+    }
+
+    func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+        logApp("")
+        return true
+    }
+
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        logApp("")
+    }
+
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        logApp("")
+    }
+
+    func applicationDidFinishLaunching(_ application: UIApplication) {
+        logApp("")
+    }
+
+    func applicationDidReceiveMemoryWarning(_ application: UIApplication) {
+        logApp("")
+    }
+
+    func applicationProtectedDataDidBecomeAvailable(_ application: UIApplication) {
+        logApp("")
+    }
+
+    func applicationProtectedDataWillBecomeUnavailable(_ application: UIApplication) {
+        logApp("")
+    }
+
+    func applicationSignificantTimeChange(_ application: UIApplication) {
+        logApp("")
+    }
+
+    func applicationWillEnterForeground(_ application: UIApplication) {
+        logApp("")
+    }
+
+    func applicationWillResignActive(_ application: UIApplication) {
+        GinManager.shared.save()
+        logApp("")
+    }
+
+    func applicationWillTerminate(_ application: UIApplication) {
+        logApp("")
     }
 
     // MARK: UISceneSession Lifecycle

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2B19675B2590AF750070C801 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2B19675D2590AF750070C801 /* InfoPlist.strings */; };
+		2B5FF0882591700200A48943 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2B5FF08A2591700200A48943 /* Localizable.strings */; };
+		2B5FF0BE2591783300A48943 /* CurrencySelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5FF0BD2591783300A48943 /* CurrencySelectionViewController.swift */; };
 		2B6392B6258FFF6600BC24E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6392B5258FFF6600BC24E8 /* AppDelegate.swift */; };
 		2B6392B8258FFF6600BC24E8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6392B7258FFF6600BC24E8 /* SceneDelegate.swift */; };
 		2B6392BA258FFF6600BC24E8 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6392B9258FFF6600BC24E8 /* MainTableViewController.swift */; };
@@ -80,6 +82,10 @@
 		2B19675C2590AF750070C801 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2B1967612590AF7C0070C801 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		2B1967622590AF7D0070C801 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2B5FF0892591700200A48943 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2B5FF08E2591700400A48943 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		2B5FF08F2591700400A48943 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2B5FF0BD2591783300A48943 /* CurrencySelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencySelectionViewController.swift; sourceTree = "<group>"; };
 		2B6392B2258FFF6600BC24E8 /* Ginsha.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ginsha.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B6392B5258FFF6600BC24E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2B6392B7258FFF6600BC24E8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -188,6 +194,8 @@
 				2B6392B5258FFF6600BC24E8 /* AppDelegate.swift */,
 				2B6392B7258FFF6600BC24E8 /* SceneDelegate.swift */,
 				2B6392B9258FFF6600BC24E8 /* MainTableViewController.swift */,
+				2B5FF0BD2591783300A48943 /* CurrencySelectionViewController.swift */,
+				2B5FF08A2591700200A48943 /* Localizable.strings */,
 				2B6392BB258FFF6600BC24E8 /* Main.storyboard */,
 				2B6392C1258FFF6700BC24E8 /* Assets.xcassets */,
 				2B6392C3258FFF6700BC24E8 /* LaunchScreen.storyboard */,
@@ -219,8 +227,8 @@
 		2B6392F12590000C00BC24E8 /* GinCore */ = {
 			isa = PBXGroup;
 			children = (
-				2B6393602590694600BC24E8 /* Models */,
 				2B19673625907AC30070C801 /* Managers */,
+				2B6393602590694600BC24E8 /* Models */,
 				2B19673225907AA10070C801 /* Utilities */,
 				2B6393162590022000BC24E8 /* Supporting Files */,
 			);
@@ -388,6 +396,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B5FF0882591700200A48943 /* Localizable.strings in Resources */,
 				2B6392C5258FFF6700BC24E8 /* LaunchScreen.storyboard in Resources */,
 				2B19675B2590AF750070C801 /* InfoPlist.strings in Resources */,
 				2B6392C2258FFF6700BC24E8 /* Assets.xcassets in Resources */,
@@ -425,6 +434,7 @@
 			files = (
 				2B6392BA258FFF6600BC24E8 /* MainTableViewController.swift in Sources */,
 				2B6392C0258FFF6600BC24E8 /* Ginsha.xcdatamodeld in Sources */,
+				2B5FF0BE2591783300A48943 /* CurrencySelectionViewController.swift in Sources */,
 				2B6392B6258FFF6600BC24E8 /* AppDelegate.swift in Sources */,
 				2B6392B8258FFF6600BC24E8 /* SceneDelegate.swift in Sources */,
 			);
@@ -499,6 +509,16 @@
 				2B1967622590AF7D0070C801 /* ja */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		2B5FF08A2591700200A48943 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2B5FF0892591700200A48943 /* en */,
+				2B5FF08E2591700400A48943 /* zh-Hans */,
+				2B5FF08F2591700400A48943 /* ja */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 		2B6392BB258FFF6600BC24E8 /* Main.storyboard */ = {
