@@ -13,7 +13,6 @@ class LocalManagerTests: XCTestCase {
 
     let localManager = LocalManager()
 
-
     func testSupportedCurrenciesCommandEmptyCache() throws {
         let handlerExpectation = self.expectation(description: "handlerExpectation")
         let command = SupportedCurrenciesCommand() { (result) in
