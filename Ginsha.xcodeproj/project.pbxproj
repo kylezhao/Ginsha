@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -30,7 +30,8 @@
 		2B639359259051CE00BC24E8 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B639358259051CE00BC24E8 /* Log.swift */; };
 		2B6393682590696100BC24E8 /* SupportedCurrencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6393672590696000BC24E8 /* SupportedCurrencies.swift */; };
 		2B63936D2590698000BC24E8 /* Quotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B63936C2590698000BC24E8 /* Quotes.swift */; };
-		2B6393722590698F00BC24E8 /* Convert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6393712590698F00BC24E8 /* Convert.swift */; };
+		2BD892EE2595606B00319E47 /* LocalManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD892ED2595606B00319E47 /* LocalManagerTests.swift */; };
+		2BD892F02595606B00319E47 /* GinCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B6392F02590000C00BC24E8 /* GinCore.framework */; platformFilter = ios; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,13 @@
 			remoteInfo = Ginsha;
 		};
 		2B6392F52590000C00BC24E8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2B6392AA258FFF6600BC24E8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2B6392EF2590000C00BC24E8;
+			remoteInfo = GinCore;
+		};
+		2BD892F12595606B00319E47 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 2B6392AA258FFF6600BC24E8 /* Project object */;
 			proxyType = 1;
@@ -107,8 +115,10 @@
 		2B639358259051CE00BC24E8 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		2B6393672590696000BC24E8 /* SupportedCurrencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportedCurrencies.swift; sourceTree = "<group>"; };
 		2B63936C2590698000BC24E8 /* Quotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quotes.swift; sourceTree = "<group>"; };
-		2B6393712590698F00BC24E8 /* Convert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Convert.swift; sourceTree = "<group>"; };
 		2BD892E025953C6700319E47 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2BD892EB2595606B00319E47 /* GinCoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GinCoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2BD892ED2595606B00319E47 /* LocalManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalManagerTests.swift; sourceTree = "<group>"; };
+		2BD892EF2595606B00319E47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +151,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2BD892E82595606B00319E47 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2BD892F02595606B00319E47 /* GinCore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -169,6 +187,7 @@
 				2B6392B4258FFF6600BC24E8 /* Ginsha */,
 				2B6392F12590000C00BC24E8 /* GinCore */,
 				2B6392CE258FFF6700BC24E8 /* GinshaTests */,
+				2BD892EC2595606B00319E47 /* GinCoreTests */,
 				2B6392D9258FFF6700BC24E8 /* GinshaUITests */,
 				2B6392B3258FFF6600BC24E8 /* Products */,
 			);
@@ -181,6 +200,7 @@
 				2B6392CB258FFF6700BC24E8 /* GinshaTests.xctest */,
 				2B6392D6258FFF6700BC24E8 /* GinshaUITests.xctest */,
 				2B6392F02590000C00BC24E8 /* GinCore.framework */,
+				2BD892EB2595606B00319E47 /* GinCoreTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -247,9 +267,17 @@
 				2B6393392590133900BC24E8 /* Base.swift */,
 				2B6393672590696000BC24E8 /* SupportedCurrencies.swift */,
 				2B63936C2590698000BC24E8 /* Quotes.swift */,
-				2B6393712590698F00BC24E8 /* Convert.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		2BD892EC2595606B00319E47 /* GinCoreTests */ = {
+			isa = PBXGroup;
+			children = (
+				2BD892ED2595606B00319E47 /* LocalManagerTests.swift */,
+				2BD892EF2595606B00319E47 /* Info.plist */,
+			);
+			path = GinCoreTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -339,6 +367,24 @@
 			productReference = 2B6392F02590000C00BC24E8 /* GinCore.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		2BD892EA2595606B00319E47 /* GinCoreTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2BD892F32595606B00319E47 /* Build configuration list for PBXNativeTarget "GinCoreTests" */;
+			buildPhases = (
+				2BD892E72595606B00319E47 /* Sources */,
+				2BD892E82595606B00319E47 /* Frameworks */,
+				2BD892E92595606B00319E47 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2BD892F22595606B00319E47 /* PBXTargetDependency */,
+			);
+			name = GinCoreTests;
+			productName = GinCoreTests;
+			productReference = 2BD892EB2595606B00319E47 /* GinCoreTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -363,6 +409,9 @@
 						CreatedOnToolsVersion = 12.3;
 						LastSwiftMigration = 1230;
 					};
+					2BD892EA2595606B00319E47 = {
+						CreatedOnToolsVersion = 12.3;
+					};
 				};
 			};
 			buildConfigurationList = 2B6392AD258FFF6600BC24E8 /* Build configuration list for PBXProject "Ginsha" */;
@@ -383,6 +432,7 @@
 				2B6392B1258FFF6600BC24E8 /* Ginsha */,
 				2B6392EF2590000C00BC24E8 /* GinCore */,
 				2B6392CA258FFF6700BC24E8 /* GinshaTests */,
+				2BD892EA2595606B00319E47 /* GinCoreTests */,
 				2B6392D5258FFF6700BC24E8 /* GinshaUITests */,
 			);
 		};
@@ -416,6 +466,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		2B6392EE2590000C00BC24E8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2BD892E92595606B00319E47 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -458,7 +515,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B639309259001D900BC24E8 /* NetworkManager.swift in Sources */,
-				2B6393722590698F00BC24E8 /* Convert.swift in Sources */,
 				2B63932F259003B100BC24E8 /* DataManaging.swift in Sources */,
 				2B639359259051CE00BC24E8 /* Log.swift in Sources */,
 				2B639304259001A000BC24E8 /* GinManager.swift in Sources */,
@@ -466,6 +522,14 @@
 				2B63936D2590698000BC24E8 /* Quotes.swift in Sources */,
 				2B63930E259001E300BC24E8 /* LocalManager.swift in Sources */,
 				2B6393682590696100BC24E8 /* SupportedCurrencies.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2BD892E72595606B00319E47 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2BD892EE2595606B00319E47 /* LocalManagerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -486,6 +550,12 @@
 			isa = PBXTargetDependency;
 			target = 2B6392EF2590000C00BC24E8 /* GinCore */;
 			targetProxy = 2B6392F52590000C00BC24E8 /* PBXContainerItemProxy */;
+		};
+		2BD892F22595606B00319E47 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			platformFilter = ios;
+			target = 2B6392EF2590000C00BC24E8 /* GinCore */;
+			targetProxy = 2BD892F12595606B00319E47 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -845,6 +915,42 @@
 			};
 			name = Release;
 		};
+		2BD892F42595606B00319E47 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = W2C828ZHV8;
+				INFOPLIST_FILE = GinCoreTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.kyle.GinCoreTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2BD892F52595606B00319E47 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = W2C828ZHV8;
+				INFOPLIST_FILE = GinCoreTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.kyle.GinCoreTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -889,6 +995,15 @@
 			buildConfigurations = (
 				2B6392FA2590000C00BC24E8 /* Debug */,
 				2B6392FB2590000C00BC24E8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2BD892F32595606B00319E47 /* Build configuration list for PBXNativeTarget "GinCoreTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2BD892F42595606B00319E47 /* Debug */,
+				2BD892F52595606B00319E47 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
