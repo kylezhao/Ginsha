@@ -35,6 +35,7 @@
 		2BD8930B25956E2000319E47 /* SupportedCurrenciesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD8930A25956E2000319E47 /* SupportedCurrenciesTests.swift */; };
 		2BD89311259576C600319E47 /* QuotesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD89310259576C600319E47 /* QuotesTests.swift */; };
 		2BD893172595852100319E47 /* NetworkManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD893162595852100319E47 /* NetworkManagerTests.swift */; };
+		2BD8931D259587C100319E47 /* CurrencySelectionViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD8931C259587C100319E47 /* CurrencySelectionViewControllerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,6 +126,7 @@
 		2BD8930A25956E2000319E47 /* SupportedCurrenciesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportedCurrenciesTests.swift; sourceTree = "<group>"; };
 		2BD89310259576C600319E47 /* QuotesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesTests.swift; sourceTree = "<group>"; };
 		2BD893162595852100319E47 /* NetworkManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerTests.swift; sourceTree = "<group>"; };
+		2BD8931C259587C100319E47 /* CurrencySelectionViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencySelectionViewControllerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -233,6 +235,7 @@
 			isa = PBXGroup;
 			children = (
 				2B6392CF258FFF6700BC24E8 /* GinshaTests.swift */,
+				2BD8931C259587C100319E47 /* CurrencySelectionViewControllerTests.swift */,
 				2B6392D1258FFF6700BC24E8 /* Info.plist */,
 			);
 			path = GinshaTests;
@@ -507,6 +510,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2BD8931D259587C100319E47 /* CurrencySelectionViewControllerTests.swift in Sources */,
 				2B6392D0258FFF6700BC24E8 /* GinshaTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
