@@ -6,29 +6,29 @@
 //
 
 public class QuotesCommand: Command {
-    
+
     override class var modelType: ModelType { return .Quotes }
     override var path: String { return "/live" }
     override var cacheKey: String { return source }
-    
+
     override var queryItems: [URLQueryItem]? {
         // Only set the query if our subscription supports currency switching 
         return IS_CURRENCY_LAYER_FREE_TRIAL ? nil : [URLQueryItem(name: "source", value: source) ]
     }
-    
+
     public let source: String
     public init(source: String, handler: @escaping (Result?) -> Void) {
         self.source = source
         super.init(handler: handler)
     }
-    
+
     override func result(with jsonDictionary: [String: Any]) -> Result? {
         var jsonDictionary = jsonDictionary
         jsonDictionary["modelType"] = QuotesCommand.modelType.rawValue
         jsonDictionary["source"] = self.source // Override the default Source USD
         return QuotesResult(jsonDictionary: jsonDictionary)
     }
-    
+
     override public var description: String {
         get {
             var description = "<\(NSStringFromClass(type(of: self))):\(Unmanaged.passUnretained(self).toOpaque())>"
@@ -39,38 +39,39 @@ public class QuotesCommand: Command {
 }
 
 public class QuotesResult: Result {
-    
+
     override class var modelType: ModelType { return .Quotes }
     private let _jsonDictionary: [String: Any]
     override var jsonDictionary: [String: Any] { return _jsonDictionary }
-    
+
     public let source: String
     public let quotes : [String:Double]
     public let sortedSymbolArray: [String]
-    
+
     init?(jsonDictionary: [String: Any]) {
-        
-        guard let modelType = ModelType(rawValue: jsonDictionary["modelType"] as! String),
+
+        guard let rawValue = jsonDictionary["modelType"] as? String,
+              let modelType = ModelType(rawValue: rawValue),
               modelType == QuotesResult.modelType else {
             logCoreError("modelType does not match \(QuotesResult.modelType) for \(jsonDictionary)")
             return nil
         }
-        
+
         guard let source = jsonDictionary["source"] as? String else {
             logCoreError("Failed parse source parameter for \(jsonDictionary)")
             return nil
         }
-        
+
         guard var quotes = jsonDictionary["quotes"] as? [String:Double] else {
             logCoreError("Failed parse quotes parameter for \(jsonDictionary)")
             return nil
         }
-        
+
         _jsonDictionary = jsonDictionary
         self.source = source
-        
+
         quotes = quotes.compactMapKeys { String($0.dropFirst(3)) }
-        
+
         // Since the free subscription doesn't allow currency switching, bias the USD results with the source currency.
         if IS_CURRENCY_LAYER_FREE_TRIAL && source != "USD" {
             let sourceValue = quotes[source]!
@@ -78,10 +79,10 @@ public class QuotesResult: Result {
         } else {
             self.quotes = quotes
         }
-        
+
         self.sortedSymbolArray = self.quotes.keys.sorted()
     }
-    
+
     override public var description: String {
         get {
             var description = "<\(NSStringFromClass(type(of: self))):\(Unmanaged.passUnretained(self).toOpaque())>"

@@ -37,7 +37,8 @@ public class SupportedCurrenciesResult: Result {
 
     init?(jsonDictionary: [String: Any]) {
 
-        guard let modelType = ModelType(rawValue: jsonDictionary["modelType"] as! String),
+        guard let rawValue = jsonDictionary["modelType"] as? String,
+              let modelType = ModelType(rawValue: rawValue),
               modelType == SupportedCurrenciesResult.modelType else {
             logCoreError("modelType does not match \(SupportedCurrenciesResult.modelType) for \(jsonDictionary)")
             return nil

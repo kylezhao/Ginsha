@@ -13,15 +13,6 @@ class LocalManagerTests: XCTestCase {
 
     let localManager = LocalManager()
 
-    func testPermorQuotesCommandEmptyCache() throws {
-        let handlerExpectation = self.expectation(description: "handlerExpectation")
-        let command = QuotesCommand(source: "USD") { (result) in
-            handlerExpectation.fulfill()
-            XCTAssertNil(result)
-        }
-        localManager.perform(command: command)
-        waitForExpectations(timeout: 5, handler: nil)
-    }
 
     func testSupportedCurrenciesCommandEmptyCache() throws {
         let handlerExpectation = self.expectation(description: "handlerExpectation")
@@ -33,19 +24,47 @@ class LocalManagerTests: XCTestCase {
         waitForExpectations(timeout: 5, handler: nil)
     }
 
-    func testPerformQuotesCommandCachedResult() throws {
-        let jsonDictionary: [String: Any ] = [
-            "timestamp" : 1608815646,
+    func testPermorQuotesCommandEmptyCache() throws {
+        let handlerExpectation = self.expectation(description: "handlerExpectation")
+        let command = QuotesCommand(source: "USD") { (result) in
+            handlerExpectation.fulfill()
+            XCTAssertNil(result)
+        }
+        localManager.perform(command: command)
+        waitForExpectations(timeout: 5, handler: nil)
+    }
+
+    func testPerformSupportedCurrenciesCommandCachedResult() throws {
+
+        let jsonDictionary: [String : Any] = [
+            "modelType" : SupportedCurrenciesResult.modelType.rawValue,
+            "currencies" : ["USD" : "United States Dollar"]
+        ]
+
+        let result = SupportedCurrenciesResult(jsonDictionary: jsonDictionary)
+        XCTAssertNotNil(result)
+
+        let handlerExpectation = self.expectation(description: "handlerExpectation")
+        let command = SupportedCurrenciesCommand() { (result) in
+            handlerExpectation.fulfill()
+            XCTAssertNotNil(result)
+        }
+
+        localManager.cache(result: result!, for: command)
+        localManager.perform(command: command)
+        waitForExpectations(timeout: 5, handler: nil)
+    }
+
+    func testPermorQuotesCommandCachedResult() throws {
+
+        let jsonDictionary: [String: Any] = [
             "modelType" : QuotesResult.modelType.rawValue,
-            "source" :  "USD",
+            "timestamp" : 1608815646,
+            "source" : "USD",
             "quotes" : [
-                "USDLAK" : 9288.789745,
-                "USDUZS" : 10478.061542,
-                "USDKWD" : 0.305403,
-                "USDISK" : 127.870084,
-                "USDEGP" : 15.733302,
-                "USDSGD" : 1.328202,
-                "USDCNY" : 6.5301,
+                "USDCAD" : 78.98,
+                "USDJPY" : 12.34,
+                "USDCNY" : 34.56,
             ]
         ]
 
@@ -53,7 +72,7 @@ class LocalManagerTests: XCTestCase {
         XCTAssertNotNil(result)
 
         let handlerExpectation = self.expectation(description: "handlerExpectation")
-        let command = QuotesCommand(source: "CNY") { (result) in
+        let command = QuotesCommand(source: "JPY") { (result) in
             handlerExpectation.fulfill()
             XCTAssertNotNil(result)
         }
@@ -63,3 +82,4 @@ class LocalManagerTests: XCTestCase {
         waitForExpectations(timeout: 5, handler: nil)
     }
 }
+
