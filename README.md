@@ -10,6 +10,6 @@ iOS 14.3
 
 ### Demo Videos!
 
-[Japanese Demo Video] (https://youtu.be/rioGC33ZDGo)
+[Japanese Demo Video](https://youtu.be/rioGC33ZDGo)
 
 [English Demo Video](https://youtu.be/xNTe-ggIDy0)
