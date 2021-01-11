@@ -7,3 +7,9 @@ Cash Ninja will convert currencies for you as swiftly as a Ninja!
 
 ### iOS Version
 iOS 14.3
+
+### Demo Videos!
+
+[Japanese Demo Video] (https://youtu.be/rioGC33ZDGo)
+
+[English Demo Video](https://youtu.be/xNTe-ggIDy0)
